@@ -1,0 +1,12 @@
+
+CREATE TABLE appointments (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  start_datetime TEXT NOT NULL,
+  end_datetime TEXT NOT NULL,
+  description TEXT NOT NULL,
+  private INTEGER NOT NULL
+);
+
+INSERT INTO appointments (name, start_datetime, end_datetime, description, private)
+VALUES ('My appointment', '2024-10-08 14:00:00', '2024-10-08 15:00:00', 'An appointment for me', 0);
