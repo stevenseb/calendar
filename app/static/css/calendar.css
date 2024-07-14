@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
 }
 
 .calendar-container {
@@ -14,7 +14,7 @@ body {
 .calendar {
     display: flex;
     flex-direction: column;
-    width: 80%; /* Adjust the calendar width */
+    width: 50%;
 }
 
 .calendar-header {
@@ -34,6 +34,19 @@ body {
     margin: 0;
 }
 
+/* Adjusting the font size of the heading */
+@media (max-width: 1000px) {
+    .calendar-header h2 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 790px) {
+    .calendar-header h2 {
+        font-size: 0.65em;
+    }
+}
+
 .calendar-header .nav-button {
     background-color: #007BFF;
     color: white;
@@ -49,8 +62,8 @@ body {
 
 .calendar-body {
     display: grid;
-    grid-template-columns: 60px 1fr; /* First column for times, second for appointments */
-    grid-template-rows: repeat(24, 40px); /* Each row represents an hour */
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: repeat(24, 40px);
     gap: 1px;
     background-color: #ddd;
 }
@@ -58,9 +71,9 @@ body {
 .calendar-time {
     background-color: white;
     text-align: right;
-    line-height: 40px; /* Adjust line height */
+    line-height: 40px;
     border: 1px solid #ccc;
-    padding-right: 5px; /* Add padding to the right for spacing */
+    padding-right: 5px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -70,12 +83,12 @@ body {
     background-color: white;
     border: 1px solid #ccc;
     position: relative;
-    overflow: hidden; /* Ensure content does not overflow */
-    cursor: pointer; /* Make the time slots clickable */
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .calendar-hour:hover {
-    background-color: #f0f0f0; /* Change color on hover */
+    background-color: #f0f0f0;
 }
 
 .calendar-appointment {
@@ -85,12 +98,12 @@ body {
     border: 1px solid #0056b3;
     cursor: pointer;
     position: absolute;
-    width: calc(100% - 10px); /* Ensure the appointment width fits within the slot */
-    left: 5px; /* Add some padding on the left */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    font-size: 12px; /* Adjust font size for appointment text */
-    top: 0; /* Align the appointment to the top of the hour slot */
-    z-index: 1; /* Ensure the appointment is on top of other content */
+    width: calc(100% - 10px);
+    left: 5px;
+    box-sizing: border-box;
+    font-size: 12px;
+    top: 0;
+    z-index: 1;
 }
 
 /* Tooltip CSS */
@@ -104,31 +117,38 @@ body {
     top: -5px;
     left: 105%;
     white-space: nowrap;
-    z-index: 1000; /* Ensure the tooltip is above other elements */
+    z-index: 1000;
 }
 
 /* Modal CSS */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
-    top: 10%; /* Adjust the top position */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    top: 2%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto; /* Adjust the top margin */
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 70%; /* Ensure the modal does not exceed 70% of the screen width */
-    border-radius: 10px; /* Add some border radius */
+    width: 65%;
+    max-width: 40%;
+    border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+    .modal-content {
+        width: 80%;
+        max-width: 70%;
+    }
 }
 
 .close {
